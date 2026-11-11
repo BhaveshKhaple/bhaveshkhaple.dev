@@ -594,8 +594,8 @@ function About() {
         <div className="about-main">
           <p className="about-copy">
             {words.map((word, index) => (
-              <span className="about-word" key={`${word}-${index}`}>
-                {word}
+              <span key={`${word}-${index}`}>
+                <span className="about-word">{word}</span>
                 {index < words.length - 1 ? ' ' : ''}
               </span>
             ))}
