@@ -4,18 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f2ec" />
     <meta
       name="description"
       content="Bhavesh Khaple, final-year AI and Data Science student at MIT Aurangabad. RAG pipelines, honest evals, and MLOps. Open to remote AI/ML internships."
     />
-    <meta name="theme-color" content="#1a1b27" />
     <title>Bhavesh Khaple · RAG, evaluation, MLOps</title>
     <script>
-      try {
-        if (localStorage.getItem('bk-theme') === 'light') {
-          document.documentElement.dataset.theme = 'light'
+      !function () {
+        document.documentElement.classList.add("js");
+        try {
+          var t = localStorage.getItem("theme");
+          if (t !== "light" && t !== "dark") {
+            t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          }
+          document.documentElement.setAttribute("data-theme", t);
+          document.querySelector('meta[name="theme-color"]').setAttribute("content", t === "light" ? "#f3f2ec" : "#000000");
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
         }
-      } catch (e) {}
+      }();
     </script>
   </head>
   <body>
