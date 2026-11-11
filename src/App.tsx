@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
+import portraitUrl from './assets/speaking-podium.jpg'
 import {
   achievements,
   bentoStack,
@@ -14,13 +15,6 @@ import {
   socials,
   updates,
 } from './content.ts'
-
-const portraitModules = import.meta.glob('./assets/speaking-podium.jpg', {
-  eager: true,
-  import: 'default',
-  query: '?url',
-})
-const portraitUrl = Object.values(portraitModules)[0] as string | undefined
 
 const nav = [
   { href: '#work', id: 'work', label: 'Work' },
@@ -367,19 +361,13 @@ export default function App() {
             </article>
 
             <article className="tile tile-photo">
-              {portraitUrl ? (
-                <img
-                  src={portraitUrl}
-                  alt="Bhavesh Khaple speaking at a wooden podium, in a white shirt, with a microphone in front of him."
-                />
-              ) : (
-                <div className="photo-fallback" role="img" aria-label="Portrait placeholder">
-                  B
-                </div>
-              )}
+              <img
+                src={portraitUrl}
+                alt="Bhavesh Khaple speaking at a wooden podium, in a white shirt, with a microphone in front of him."
+              />
               <div className="photo-cap">
                 <strong>{profile.name}</strong>
-                <span>{portraitUrl ? 'Speaking at a podium' : profile.locationShort}</span>
+                <span>Speaking at a podium</span>
               </div>
             </article>
 

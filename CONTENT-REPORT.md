@@ -24,8 +24,7 @@ Built 11 Nov 2026. Local only. Not deployed.
 - PayState Bridge and GAO Tek. Ruled out, and neither is in the site copy.
 - The college-round ranking for Smart India Hackathon. Ruled out. The hackathon appears only as a participant entry on Multimodal RAG v4.
 - Team name, and the product name LegalVault. The project is FinVault AI. The repository URL still points at `legalvault-ai`.
-- Other photos (passport headshot, group photo, felicitation). Only the podium photo is allowed, and the other shots were not confirmed.
-- The podium file itself. The notes point at `speaking_podium_github_avatar.jpg`, and that path was not readable in this workspace, so the photo tile is a monogram rather than a stand-in picture. Put the jpg at `src/assets/speaking-podium.jpg` and the tile will use it. GitHub, X, and Hugging Face avatars are different photos and were not used.
+- Other photos (passport headshot, group photo, felicitation). Only the podium photo is used, in the bento tile.
 - Phone number, testimonials, and newsletter. None were in the notes.
 - Medium article titles. The notes only include the profile URL, so the page links the profile and does not invent posts.
 - A specific CRHDRI start day. HR has not confirmed one.
