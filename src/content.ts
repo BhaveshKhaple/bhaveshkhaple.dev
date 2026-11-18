@@ -37,6 +37,11 @@ export type Project = {
   highlights?: string[]
   caveat?: string
   featured?: boolean
+  demoVideo?: {
+    id: string
+    title: string
+    href: string
+  }
 }
 
 export const projects: Project[] = [
@@ -63,6 +68,11 @@ export const projects: Project[] = [
     caveat:
       "Recall@5 of 95.7% is on 23 queries over 10 synthetic English PDFs (text and tables), with 100% refusal on out-of-scope questions. Real-world messy PDFs, OCR, and multilingual documents are not tested yet. The first Report Shield caught 1 of 13 planted errors on a real audit report. v2 is being rebuilt against a ground-truth corpus, with 116 tests passing.",
     featured: true,
+    demoVideo: {
+      id: "9JjOcRSG_lw",
+      title: "FinVault AI prototype demo",
+      href: "https://youtu.be/9JjOcRSG_lw",
+    },
   },
   {
     id: "rag-commercial",
