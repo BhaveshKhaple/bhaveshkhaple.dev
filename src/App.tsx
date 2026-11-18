@@ -47,6 +47,11 @@ type WorkItem = {
   extra?: string[]
   repo: string
   demo?: string
+  demoVideo?: {
+    id: string
+    title: string
+    href: string
+  }
 }
 
 const work: WorkItem[] = [
@@ -59,6 +64,7 @@ const work: WorkItem[] = [
     summary: project.summary,
     extra: [...(project.role ? [project.role] : []), ...(project.highlights ?? []), ...(project.caveat ? [project.caveat] : [])],
     repo: project.repo,
+    demoVideo: project.demoVideo,
   })),
   {
     id: 'xray',
@@ -144,6 +150,42 @@ function Cover({ index, tone, className = '' }: { index: number; tone: string; c
         <div className="pcover-mono">{String(index).padStart(2, '0')}</div>
       </div>
     </div>
+  )
+}
+
+function YouTubeFacade({ videoId, title }: { videoId: string; title: string }) {
+  const [playing, setPlaying] = useState(false)
+  const frameRef = useRef<HTMLIFrameElement>(null)
+
+  useEffect(() => {
+    if (playing) frameRef.current?.focus()
+  }, [playing])
+
+  return (
+    <figure className="ppanel-video" id="finvault-demo">
+      <figcaption>{title}</figcaption>
+      <div className="yt">
+        {playing ? (
+          <iframe
+            ref={frameRef}
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1`}
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+        ) : (
+          <button type="button" className="yt-play" onClick={() => setPlaying(true)} aria-label={`Play ${title}`}>
+            <img src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`} alt="" width={480} height={360} decoding="async" />
+            <span className="yt-play-btn" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24">
+                <path d="M8.5 6.8v10.4L18 12 8.5 6.8z" fill="currentColor" />
+              </svg>
+            </span>
+          </button>
+        )}
+      </div>
+    </figure>
   )
 }
 
@@ -521,7 +563,11 @@ function Projects() {
                       transition={{ duration: 0.5, ease }}
                     >
                       <div className="ppanel-inner">
-                        <Cover index={index + 1} tone={tones[index % tones.length]} className="ppanel-cover" />
+                        {item.demoVideo ? (
+                          <YouTubeFacade videoId={item.demoVideo.id} title={item.demoVideo.title} />
+                        ) : (
+                          <Cover index={index + 1} tone={tones[index % tones.length]} className="ppanel-cover" />
+                        )}
                         <div className="ppanel-body">
                           <p>{item.summary}</p>
                           {item.extra?.map((line) => (
@@ -540,6 +586,11 @@ function Projects() {
                             ) : null}
                           </div>
                           <div className="plinks">
+                            {item.demoVideo ? (
+                              <a className="btn btn-solid" href={item.demoVideo.href} target="_blank" rel="noreferrer">
+                                Watch demo
+                              </a>
+                            ) : null}
                             {item.demo ? (
                               <a className="btn btn-solid" href={item.demo} target="_blank" rel="noreferrer">
                                 Open live site ↗
