@@ -728,7 +728,9 @@ function Journey() {
                   <div className="ticket-main">
                     <h3>{job.title}</h3>
                     <p className="ticket-org">{job.org}</p>
-                    {'note' in job && job.note ? <p className="ticket-desc">{job.note}</p> : null}
+                    {'note' in job && typeof job.note === 'string' ? (
+                      <p className="ticket-desc">{job.note}</p>
+                    ) : null}
                     {'bullets' in job && job.bullets ? (
                       <ul>
                         {job.bullets.map((bullet) => (
