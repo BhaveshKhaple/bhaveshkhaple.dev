@@ -159,15 +159,16 @@ export const sideAssignment = {
 } as const
 
 export const experience = [
-  {
-    id: "crhdri",
-    org: "CRHDRI",
-    title: "AI/ML Intern",
-    mode: "Remote",
-    dates: "Starting Dec 2026",
-    upcoming: true,
-    note: "Upcoming. The joining date is still being confirmed with HR, so no specific day is listed here.",
-  },
+  // Hidden for now (CRHDRI), restore later
+  // {
+  //   id: "crhdri",
+  //   org: "CRHDRI",
+  //   title: "AI/ML Intern",
+  //   mode: "Remote",
+  //   dates: "Starting Dec 2026",
+  //   upcoming: true,
+  //   note: "Upcoming. The joining date is still being confirmed with HR, so no specific day is listed here.",
+  // },
   {
     id: "abhyudaya",
     org: "Abhyudaya Education Consultancy",
