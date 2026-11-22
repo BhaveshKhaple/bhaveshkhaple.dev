@@ -169,6 +169,18 @@ export const experience = [
     note: "Upcoming. The joining date is still being confirmed with HR, so no specific day is listed here.",
   },
   {
+    id: "abhyudaya",
+    org: "Abhyudaya Education Consultancy",
+    title: "AI & Workflow Automation Intern",
+    mode: "Hybrid",
+    dates: "Jul 2025 to Aug 2025",
+    bullets: [
+      "Collaborated on Persona365, a full-stack Generative AI application using Python, Flask, JavaScript, HTML and CSS, integrating large language models for automated personality assessment and analysis.",
+      "Integrated the OpenAI API with structured prompt engineering to process questionnaire responses, generate AI-powered personality insights and produce structured assessment reports for counselling.",
+      "Developed Flask REST API workflows for LLM integration, automated report generation and email delivery; deployed the frontend on Vercel and the backend on Render.",
+    ],
+  },
+  {
     id: "smaran",
     org: "SmaranAI.in",
     title: "Developer Intern",
